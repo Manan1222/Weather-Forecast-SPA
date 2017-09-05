@@ -30,7 +30,7 @@ weatherApp.service('cityService', function(){
 
 
 // CONTROLLERS
-weatherApp.controller('homeController', ['$scope',  'cityService', function($scope, cityService) {
+weatherApp.controller('homeController', ['$scope',  'cityService', '$location', function($scope, cityService, $location) {
 	
 		$scope.city = cityService.city;
 		
@@ -38,6 +38,9 @@ weatherApp.controller('homeController', ['$scope',  'cityService', function($sco
 			cityService.city = $scope.city;
 		})
 		
+		$scope.submit = function(){
+			$location.path("/forecast")
+		};
 		
 			
     
